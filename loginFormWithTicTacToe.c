@@ -106,6 +106,69 @@ void progressBar()
 }
 
 
+// Function to display a bigger, centered Tic-Tac-Toe board
+void displayBoard(char board[3][3]) {
+    system("cls");
+    printf("\n\n\n\n\n\n\n\t\t\t\t\t\t         TIC-TAC-TOE\n");
+    printf("\t\t\t\t\t\t  Player 1 (X) - Player 2 (O)\n\n");
+    int i,j;
+    for ( i = 0; i < 3; i++) {
+        printf("\t\t\t\t\t\t      ");
+        for ( j = 0; j < 3; j++) {
+            printf("  %c  ", board[i][j]);
+            if (j < 2) printf("|");
+        }
+        printf("\n");
+
+        if (i < 2) {
+            printf("\t\t\t\t\t\t     ");
+            printf("------|-----|------\n");
+        }
+    }
+}
+
+// Function to check if a player has won
+int checkWinner(char board[3][3]) {
+	int i;
+    for ( i = 0; i < 3; i++) {
+        if (board[i][0] == board[i][1] && board[i][1] == board[i][2]) return 1;
+        if (board[0][i] == board[1][i] && board[1][i] == board[2][i]) return 1;
+    }
+    if (board[0][0] == board[1][1] && board[1][1] == board[2][2]) return 1;
+    if (board[0][2] == board[1][1] && board[1][1] == board[2][0]) return 1;
+    return 0;
+}
+
+
+// Tic-Tac-Toe Game
+void ticTacToe() {
+    char board[3][3] = {{'1', '2', '3'}, {'4', '5', '6'}, {'7', '8', '9'}};
+    int move, turn = 0;
+    char mark;
+
+    while (turn < 9) {
+        displayBoard(board);
+        mark = (turn % 2 == 0) ? 'X' : 'O';
+        printf("\n\t\t\t\t\t\t  Player %c, enter position (1-9): ", mark);
+        scanf("%d", &move);
+
+        if (move < 1 || move > 9) continue;
+        int row = (move - 1) / 3, col = (move - 1) % 3;
+        if (board[row][col] == 'X' || board[row][col] == 'O') continue;
+        board[row][col] = mark;
+        turn++;
+
+        if (checkWinner(board)) {
+            displayBoard(board);
+            printf("\n\t\t\t\t\t\t  Player %c wins!\n", mark);
+            return;
+        }
+    }
+    displayBoard(board);
+    printf("\n\t\t\t\t\t\t  It's a draw!\n");
+}
+
+
 int main()
 {
 	system("color B0");
@@ -119,7 +182,7 @@ int main()
     printf(" |             WELCOME TO TIC TAC TOE                 |\n");
     printf(" |----------------------------------------------------|\n");
     printf(" |                                                    |\n");
-    printf(" |   1. Signup                                        |\n");
+    printf(" |   1. Register                                      |\n");
     printf(" |   2. Login                                         |\n");
     printf(" |   3. Exit                                          |\n");
     printf(" |                                                    |\n");
@@ -217,9 +280,16 @@ int main()
 						printf("\n|Contact no.:\t%s",usr.phone);
 						printf("\n");
 						printf("\n YOU HAVE SUCCESSFULLY LOGGED IN , ABOVE ARE YOUR DETAILS!!!\n");
-                        printf(" +----------------------------------+\n");
-                        printf(" |  \033]8;;https://playtictactoe.org//\033\\CLICK HERE TO PLAY TIC TAC TOE\033]8;;\033\\  |\n");
-                        printf(" +----------------------------------+\n");
+                       
+                         // Option to play Tic-Tac-Toe
+                        int play;
+                        printf("\n Do you want to play Tic-Tac-Toe? (1-Yes, 0-No): ");
+                        scanf("%d", &play);
+                        if (play == 1) {
+                        system("cls");
+                        ticTacToe();
+                    }
+                    
 						usrFound = 1;
 						fclose(fp);
 						break;
