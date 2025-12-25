@@ -1,89 +1,90 @@
-# Login2Play 🎮 (IE Project – PPS @ TCET)
+# Login2Play 🎮  
+CLI-Based Authentication System with Game Logic
 
-A terminal-based project in C that combines a full **user authentication system** (registration and login) with a playable **Tic-Tac-Toe game**. Developed as a **group academic project** for the subject **PPS (Programming for Problem Solving)** under the **Innovative Examination (IE)** of Semester 2 at **TCET**.
-
-🧑‍💻 **Group Members:**
-- **Prince Jha**
-- **Sachin Jha**
+Login2Play is a terminal-based application written in C that implements a user registration and login system, followed by an optional two-player Tic-Tac-Toe game. The project demonstrates structured programming, file handling, input validation, and control flow in a command-line environment.
 
 ---
 
-## 📋 Features
+## 🚀 Features
 
-- **Sign-Up System**  
-  - Takes full name, phone number, Gmail ID, and masked password
-  - Validates phone number (10 digits) and email (must end with `@gmail.com`)
-  - Generates a username automatically from email
-  - Saves user data in a binary file (`Users.dat`)
+### 🔐 User Authentication
+- User registration with:
+  - Full name
+  - Phone number (10-digit validation)
+  - Email ID validation
+  - Password input
+- User login with credential verification
+- Persistent storage using binary file handling
+- Automatic username generation
 
-- **Login System**
-  - Verifies credentials from stored data
-  - Shows progress bar animation on successful login
-  - Displays full user profile (name, phone, email, username)
+### 🎮 Tic-Tac-Toe Game
+- Optional launch after successful login
+- Classic 2-player mode
+- Win, lose, and draw detection
+- Clean CLI-based board layout
+- Input validation for occupied positions
 
-- **Tic-Tac-Toe Game**
-  - Optionally launches after login
-  - Classic 2-player mode with win/draw logic
-  - Clean, centered CLI layout using `printf`
-  - Game continues until win or draw condition is met
-
-- **Polished User Interface**
-  - Blue background screen (`system("color B0")`)
-  - Menu and game layout centered and clearly formatted
-  - Prompts are displayed for **every invalid input** (e.g., wrong password, wrong email/phone format, username not found, position already filled, etc.)
-  - Feedback is given using **`Beep()` sounds**, messages, and clean structure
+### 🖥️ Command-Line Interface
+- Menu-driven navigation
+- Clear prompts and error messages
+- Structured flow for registration, login, and gameplay
 
 ---
 
-## 🚫 Limitations
+## 🛠️ Tech Stack
+- **Language:** C  
+- **Concepts Used:**
+  - File handling
+  - Structures
+  - Input validation
+  - Conditional logic
+  - Loops and functions
 
+---
+
+## ⚠️ Limitations
 - Passwords stored in plain text (no encryption)
-- Windows-only (`windows.h`, `conio.h`, `Beep()` usage)
-- No admin panel or user management features
-- No multiplayer over network — local only
+- Platform-dependent features (Windows-specific headers)
+- No role-based access or admin management
+- Local execution only (no networking)
 
 ---
 
-## 🧪 Academic Context
+## 📂 Project Structure
+- `loginformnew.c` — main source file  
+- `Users.dat` — auto-generated binary file for user data  
 
-| Field                | Info                                      |
-|---------------------|-------------------------------------------|
-| 📚 Subject           | Programming for Problem Solving (PPS)     |
-| 🏫 College           | Thakur College of Engineering & Technology (TCET) |
-| 📘 Semester          | 2nd Semester                              |
-| 🧪 Project Type      | Innovative Examination (IE) Group Project |
-| 👨‍👦 Contributors      | Prince Jha, Sachin Jha                    |
+> ⚠️ `Users.dat` is generated at runtime and should not be pushed to GitHub.
 
 ---
 
-## 🛠️ How to Run
-
-1. Open `loginformnew.c` in **VS Code**, **Turbo C**, or any C compiler (Windows)
-2. Compile the file
-3. Run in terminal/command prompt
+## ▶️ How to Run
+1. Open the source file in any C compiler (e.g., VS Code, GCC, Turbo C on Windows)
+2. Compile the program
+3. Run the executable in the terminal
 4. Choose from the menu:
-   - 1 → Register
-   - 2 → Login (launches game option after success)
-   - 3 → Exit
+   - Register
+   - Login
+   - Exit
 
 ---
 
-## 📂 Files Used
-
-- `loginformnew.c` → Main source code
-- `Users.dat` → Stores user credentials locally (binary format)
-
-🗃️ Note: Users.dat is auto-generated when users register. It should not be pushed to GitHub.
+## 🎯 Learning Outcomes
+- Applied structured programming in C
+- Implemented persistent storage using files
+- Designed a menu-driven CLI application
+- Strengthened understanding of control flow and logic building
 
 ---
 
-## ✍️ Author
-
+## 👤 Author
 **Prince Jha**  
-Group Project for TCET – Semester 2 – PPS Subject (IE Format)
+Computer Engineering Student  
+Thakur College of Engineering and Technology (TCET)
 
 ---
 
-## ✅ Status
-
-🎯 Project completed, tested, and presented as part of an academic submission.
+## ✅ Project Status
+✔ Completed  
+✔ Tested  
+✔ Maintained for learning and demonstration purposes
